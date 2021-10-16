@@ -1,0 +1,177 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://UI/MainMenu/CreditsScreen.gd" type="Script" id=1]
+[ext_resource path="res://UI/SceneTransitionRect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/Images/Button_background.png" type="Texture" id=5]
+[ext_resource path="res://UI/MainMenu/Logo.png" type="Texture" id=6]
+[ext_resource path="res://UI/MainMenu/CreditsLabel.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://UI/Fonts/PHITRADESIGN HANDWRITTEN THIN.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+extra_spacing_top = -50
+extra_spacing_bottom = -50
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+extra_spacing_top = -50
+extra_spacing_bottom = -50
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+extra_spacing_top = -50
+extra_spacing_bottom = -50
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+extra_spacing_top = -50
+extra_spacing_bottom = -50
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 75
+outline_size = 2
+outline_color = Color( 0.956863, 0.584314, 0.584314, 1 )
+extra_spacing_top = -50
+extra_spacing_bottom = -50
+font_data = SubResource( 1 )
+
+[node name="CreditsScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.501961, 0.6, 0.788235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 0.956863, 0.584314, 0.584314, 1 )
+margin_left = 124.512
+margin_top = 451.903
+margin_right = 918.512
+margin_bottom = 664.903
+rect_scale = Vector2( 0.923, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.317
+anchor_right = 0.5
+anchor_bottom = 0.317
+margin_left = -254.669
+margin_top = -189.2
+margin_right = 2095.33
+margin_bottom = 1943.8
+rect_scale = Vector2( 0.213027, 0.213027 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+margin_left = 186.0
+margin_top = 169.0
+margin_right = 2163.0
+margin_bottom = 1963.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_top = 13.0
+margin_bottom = 27.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -198.0
+margin_right = 448.0
+margin_bottom = 91.0
+custom_constants/vseparation = 110
+custom_constants/hseparation = 193
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsLabel" parent="GridContainer" instance=ExtResource( 7 )]
+margin_right = 326.0
+margin_bottom = 0.0
+custom_fonts/font = SubResource( 2 )
+text = "Developed by:"
+
+[node name="CreditsLabel2" parent="GridContainer" instance=ExtResource( 7 )]
+margin_left = 519.0
+margin_right = 871.0
+margin_bottom = 0.0
+custom_fonts/font = SubResource( 2 )
+text = "Devon Oberdan"
+
+[node name="CreditsLabel3" parent="GridContainer" instance=ExtResource( 7 )]
+margin_top = 110.0
+margin_right = 326.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.886275, 0.815686, 0.160784, 1 )
+text = "Art by:"
+
+[node name="CreditsLabel4" parent="GridContainer" instance=ExtResource( 7 )]
+margin_left = 519.0
+margin_top = 110.0
+margin_right = 871.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.886275, 0.815686, 0.160784, 1 )
+text = "Victoria Ogino"
+
+[node name="CreditsLabel5" parent="GridContainer" instance=ExtResource( 7 )]
+margin_top = 220.0
+margin_right = 326.0
+margin_bottom = 220.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.494118, 0.768627, 0.505882, 1 )
+text = "Music by Xythe"
+
+[node name="CreditsLabel6" parent="GridContainer" instance=ExtResource( 7 )]
+margin_left = 519.0
+margin_top = 220.0
+margin_right = 871.0
+margin_bottom = 220.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.494118, 0.768627, 0.505882, 1 )
+text = "freesound.org"
+
+[node name="CreditsLabel" parent="." instance=ExtResource( 7 )]
+margin_left = 162.841
+margin_top = 486.288
+margin_right = 818.841
+margin_bottom = 568.288
+custom_fonts/font = SubResource( 6 )
+text = "Thanks for playing!!!"

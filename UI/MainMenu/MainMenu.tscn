@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://UI/Buttons/SceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/SceneTransitionRect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/Images/Button_background.png" type="Texture" id=5]
+[ext_resource path="res://UI/MainMenu/Logo.png" type="Texture" id=6]
+[ext_resource path="res://UI/Images/Button_fill.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 799, 219 )
+modulate_color = Color( 0.886275, 0.815686, 0.160784, 1 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 799, 219 )
+modulate_color = Color( 0.494118, 0.768627, 0.505882, 1 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 799, 219 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.41431
+margin_right = 1.41431
+color = Color( 0.502411, 0.600947, 0.789063, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 0.956863, 0.584314, 0.584314, 1 )
+margin_left = 124.512
+margin_top = 451.903
+margin_right = 918.512
+margin_bottom = 664.903
+rect_scale = Vector2( 0.923, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" parent="." instance=ExtResource( 2 )]
+anchor_top = 0.784
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 344.304
+margin_top = 0.0849609
+margin_right = 114.3
+margin_bottom = 83.485
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+scene = ExtResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.317
+anchor_right = 0.5
+anchor_bottom = 0.317
+margin_left = -254.669
+margin_top = -189.2
+margin_right = 2095.33
+margin_bottom = 1943.8
+rect_scale = Vector2( 0.213027, 0.213027 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+margin_left = 186.0
+margin_top = 169.0
+margin_right = 2163.0
+margin_bottom = 1963.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 4 )]
+visible = false

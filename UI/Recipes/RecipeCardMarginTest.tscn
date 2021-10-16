@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://UI/Recipes/Sprites/Neutron.png" type="Texture" id=2]
+[ext_resource path="res://UI/Recipes/Sprites/Proton.png" type="Texture" id=3]
+[ext_resource path="res://UI/Recipes/ElementBackground.png" type="Texture" id=4]
+[ext_resource path="res://UI/Recipes/RecipeLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Particles/Sprites/Electron_dark.png" type="Texture" id=6]
+
+[node name="TextureRect" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -34.0
+margin_bottom = 677.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 990.0
+margin_bottom = 1277.0
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NumberContainer"]
+margin_top = 87.0
+margin_right = 990.0
+margin_bottom = 452.0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="RecipeLabel" parent="MarginContainer/NumberContainer/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 214.0
+margin_right = 343.0
+margin_bottom = 365.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NumberContainer/HBoxContainer"]
+margin_left = 493.0
+margin_right = 776.0
+margin_bottom = 365.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/NumberContainer/HBoxContainer/MarginContainer"]
+margin_right = 283.0
+margin_bottom = 365.0
+texture = ExtResource( 3 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/NumberContainer"]
+margin_top = 456.0
+margin_right = 990.0
+margin_bottom = 821.0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="RecipeLabel" parent="MarginContainer/NumberContainer/HBoxContainer2" instance=ExtResource( 5 )]
+margin_left = 214.0
+margin_right = 343.0
+margin_bottom = 365.0
+custom_colors/font_color = Color( 0.886275, 0.815686, 0.160784, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NumberContainer/HBoxContainer2"]
+margin_left = 493.0
+margin_right = 776.0
+margin_bottom = 365.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/NumberContainer/HBoxContainer2/MarginContainer"]
+margin_right = 283.0
+margin_bottom = 365.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/NumberContainer"]
+margin_top = 825.0
+margin_right = 990.0
+margin_bottom = 1190.0
+custom_constants/separation = 150
+alignment = 1
+
+[node name="RecipeLabel" parent="MarginContainer/NumberContainer/HBoxContainer3" instance=ExtResource( 5 )]
+margin_left = 220.0
+margin_right = 349.0
+margin_bottom = 365.0
+custom_colors/font_color = Color( 0.454902, 0.756863, 0.756863, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NumberContainer/HBoxContainer3"]
+margin_left = 499.0
+margin_right = 769.0
+margin_bottom = 365.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/NumberContainer/HBoxContainer3/MarginContainer"]
+margin_right = 270.0
+margin_bottom = 365.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+
+[node name="RecipeLabel3" parent="MarginContainer/NumberContainer" instance=ExtResource( 5 )]
+visible = false
+margin_left = 0.0
+margin_top = 1291.0
+margin_right = 416.0
+margin_bottom = 1656.0
+
+[node name="RecipeCard" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.1, 0.1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

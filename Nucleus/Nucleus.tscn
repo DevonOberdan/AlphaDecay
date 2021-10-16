@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nucleus/Nucleus.gd" type="Script" id=1]
+[ext_resource path="res://Nucleus/NucleusShadow.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 100.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "Stable"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shadow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.454902, 0.454902, 0.447059 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Unstable"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shadow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.454902, 0.454902, 0.454902, 0.447059 ), Color( 0.484375, 0.283813, 0.283813, 0.447059 ), Color( 0.454902, 0.454902, 0.454902, 0.447059 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, 0.25 ), Vector2( 0.275, 0.25 ), Vector2( 0.268, 0.285 ), Vector2( 0.25, 0.25 ) ]
+}
+
+[node name="Nucleus" type="Node2D" groups=[
+"Nuclei",
+]]
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Shadow" type="Sprite" parent="."]
+modulate = Color( 0.454902, 0.454902, 0.454902, 0.447059 )
+scale = Vector2( 0.275, 0.25 )
+z_index = -10
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Stable = SubResource( 3 )
+anims/Unstable = SubResource( 2 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

@@ -1,0 +1,245 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Atom/Atom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Shell/Shell.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Particles/Scenes/Neutron.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Particles/Scenes/Proton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Level9.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 120.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 102.0
+
+[node name="Level" instance=ExtResource( 1 )]
+
+[node name="Atom" parent="Atoms" index="0" instance=ExtResource( 3 )]
+position = Vector2( 350.012, 347.257 )
+start_protons = 11
+start_neutrons = 10
+start_electrons = 11
+
+[node name="CollisionShape2D" parent="Atoms/Atom/AtomArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="Shell" parent="Atoms/Atom/Shells" index="0" instance=ExtResource( 4 )]
+scale = Vector2( 0.125, 0.125 )
+electron_max_count = 2
+
+[node name="Shell2" parent="Atoms/Atom/Shells" index="1" instance=ExtResource( 4 )]
+scale = Vector2( 0.16, 0.16 )
+electron_start_count = 9
+electron_max_count = 8
+
+[node name="Shell3" parent="Atoms/Atom/Shells" index="2" instance=ExtResource( 4 )]
+scale = Vector2( 0.19, 0.19 )
+electron_start_count = 1
+electron_max_count = 18
+
+[node name="Atom2" parent="Atoms" index="1" instance=ExtResource( 3 )]
+position = Vector2( 751.807, 331.221 )
+start_protons = 10
+start_neutrons = 11
+start_electrons = 6
+
+[node name="CollisionShape2D" parent="Atoms/Atom2/AtomArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="Shell" parent="Atoms/Atom2/Shells" index="0" instance=ExtResource( 4 )]
+scale = Vector2( 0.125, 0.125 )
+electron_start_count = 6
+electron_max_count = 2
+
+[node name="Shell2" parent="Atoms/Atom2/Shells" index="1" instance=ExtResource( 4 )]
+scale = Vector2( 0.16, 0.16 )
+electron_start_count = 4
+electron_max_count = 8
+
+[node name="Proton" parent="FreeStartingParticles" index="0" instance=ExtResource( 6 )]
+position = Vector2( 283.195, 120.969 )
+
+[node name="Neutron" parent="FreeStartingParticles" index="1" instance=ExtResource( 5 )]
+position = Vector2( 504.137, 114.733 )
+
+[node name="Neutron" parent="StartingNucleusParticles" index="0" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron2" parent="StartingNucleusParticles" index="1" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron3" parent="StartingNucleusParticles" index="2" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron4" parent="StartingNucleusParticles" index="3" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron5" parent="StartingNucleusParticles" index="4" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron6" parent="StartingNucleusParticles" index="5" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron7" parent="StartingNucleusParticles" index="6" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron8" parent="StartingNucleusParticles" index="7" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron9" parent="StartingNucleusParticles" index="8" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Neutron10" parent="StartingNucleusParticles" index="9" instance=ExtResource( 5 )]
+position = Vector2( 337.539, 350.821 )
+mode = 1
+
+[node name="Proton" parent="StartingNucleusParticles" index="10" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton2" parent="StartingNucleusParticles" index="11" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton3" parent="StartingNucleusParticles" index="12" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton4" parent="StartingNucleusParticles" index="13" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton5" parent="StartingNucleusParticles" index="14" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton6" parent="StartingNucleusParticles" index="15" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton7" parent="StartingNucleusParticles" index="16" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton8" parent="StartingNucleusParticles" index="17" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton9" parent="StartingNucleusParticles" index="18" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton10" parent="StartingNucleusParticles" index="19" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton11" parent="StartingNucleusParticles" index="20" instance=ExtResource( 6 )]
+position = Vector2( 362.485, 351.712 )
+mode = 1
+
+[node name="Proton12" parent="StartingNucleusParticles" index="21" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton13" parent="StartingNucleusParticles" index="22" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton14" parent="StartingNucleusParticles" index="23" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton15" parent="StartingNucleusParticles" index="24" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton16" parent="StartingNucleusParticles" index="25" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton17" parent="StartingNucleusParticles" index="26" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton18" parent="StartingNucleusParticles" index="27" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton19" parent="StartingNucleusParticles" index="28" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton20" parent="StartingNucleusParticles" index="29" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Proton21" parent="StartingNucleusParticles" index="30" instance=ExtResource( 6 )]
+position = Vector2( 736.662, 333.003 )
+mode = 1
+
+[node name="Neutron11" parent="StartingNucleusParticles" index="31" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron12" parent="StartingNucleusParticles" index="32" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron13" parent="StartingNucleusParticles" index="33" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron14" parent="StartingNucleusParticles" index="34" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron15" parent="StartingNucleusParticles" index="35" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron16" parent="StartingNucleusParticles" index="36" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron17" parent="StartingNucleusParticles" index="37" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron18" parent="StartingNucleusParticles" index="38" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron19" parent="StartingNucleusParticles" index="39" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron20" parent="StartingNucleusParticles" index="40" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Neutron21" parent="StartingNucleusParticles" index="41" instance=ExtResource( 5 )]
+position = Vector2( 773.189, 333.894 )
+mode = 1
+
+[node name="Recipe" parent="CanvasLayer/LevelUI/RecipeContainer" index="0"]
+protons = 11
+neutrons = 11
+electrons = 10
+element = "Na"
+
+[node name="SceneButton" parent="CanvasLayer/LevelUI/SuccessContainer" index="1"]
+scene = ExtResource( 7 )
+
+[editable path="Atoms/Atom"]
+[editable path="Atoms/Atom2"]
+[editable path="CanvasLayer/LevelUI/SuccessContainer/SceneButton"]

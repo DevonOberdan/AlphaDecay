@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/516912__xythe__chill-tune-for-a-game.wav-9472e172ad686e4060d7c533b14ddc06.sample"
+
+[deps]
+
+source_file="res://Sounds/516912__xythe__chill-tune-for-a-game.wav"
+dest_files=[ "res://.import/516912__xythe__chill-tune-for-a-game.wav-9472e172ad686e4060d7c533b14ddc06.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

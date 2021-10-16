@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sounds/MusicPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/516912__xythe__chill-tune-for-a-game.wav" type="AudioStream" id=2]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+volume_db = -2.0
+script = ExtResource( 1 )

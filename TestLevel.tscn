@@ -1,0 +1,200 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Atom/Atom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/Background1.png" type="Texture" id=2]
+[ext_resource path="res://Particles/Scenes/Proton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Particles/Scenes/Neutron.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/BoundaryArea.gd" type="Script" id=5]
+[ext_resource path="res://UI/SceneTransitionRect.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Shell/Shell.tscn" type="PackedScene" id=7]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.59
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 615.283, 12.418 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 308.215, 12.418 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 102.0
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.502411, 0.600947, 0.789063, 1 )
+position = Vector2( 514.046, 302 )
+scale = Vector2( 3.435, 4.055 )
+z_index = -100
+texture = ExtResource( 2 )
+
+[node name="Atom" parent="." instance=ExtResource( 1 )]
+position = Vector2( 196.326, 379.438 )
+
+[node name="Shell" parent="Atom/Shells" index="0" instance=ExtResource( 7 )]
+scale = Vector2( 0.125, 0.125 )
+
+[node name="Shell2" parent="Atom/Shells" index="1" instance=ExtResource( 7 )]
+scale = Vector2( 0.16, 0.16 )
+
+[node name="ScreenBoundary" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+physics_material_override = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenBoundary"]
+position = Vector2( 477.96, -10.4882 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenBoundary"]
+position = Vector2( 493.96, 616 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ScreenBoundary"]
+position = Vector2( -9.43942, 303.118 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Wall4" type="CollisionShape2D" parent="ScreenBoundary"]
+position = Vector2( 1038.7, 302.227 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="NearScreenArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NearScreenArea"]
+position = Vector2( 482.203, 15.0348 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="NearScreenArea"]
+position = Vector2( 493.516, 593.399 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="NearScreenArea"]
+position = Vector2( 16.0164, 290.39 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="NearScreenArea"]
+position = Vector2( 1011.83, 302.227 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="FreeStartingParticles" type="Node2D" parent="."]
+
+[node name="Neutron" parent="FreeStartingParticles" instance=ExtResource( 4 )]
+position = Vector2( 71.3032, 493.828 )
+contact_monitor = true
+
+[node name="Neutron2" parent="FreeStartingParticles" instance=ExtResource( 4 )]
+position = Vector2( 531.082, 140.186 )
+contact_monitor = true
+
+[node name="Neutron3" parent="FreeStartingParticles" instance=ExtResource( 4 )]
+position = Vector2( 409.919, 92.9684 )
+contact_monitor = true
+
+[node name="Neutron4" parent="FreeStartingParticles" instance=ExtResource( 4 )]
+position = Vector2( 273.612, 100.096 )
+contact_monitor = true
+
+[node name="Proton3" parent="FreeStartingParticles" instance=ExtResource( 3 )]
+position = Vector2( 525.235, 385.124 )
+contact_monitor = true
+
+[node name="StartingNucleusParticles" type="Node2D" parent="."]
+
+[node name="Atom1Container" type="Node2D" parent="StartingNucleusParticles"]
+
+[node name="Neutron2" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 199.258, 361.954 )
+contact_monitor = true
+
+[node name="Neutron3" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 208.507, 386.34 )
+contact_monitor = true
+
+[node name="Neutron4" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 208.507, 386.34 )
+contact_monitor = true
+
+[node name="Neutron7" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 208.507, 386.34 )
+contact_monitor = true
+
+[node name="Neutron8" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 208.507, 386.34 )
+contact_monitor = true
+
+[node name="Neutron9" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 208.507, 386.34 )
+contact_monitor = true
+
+[node name="Neutron5" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 208.507, 386.34 )
+contact_monitor = true
+
+[node name="Neutron6" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 208.507, 386.34 )
+contact_monitor = true
+
+[node name="Neutron10" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 4 )]
+position = Vector2( 208.507, 386.34 )
+contact_monitor = true
+
+[node name="Proton" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 3 )]
+position = Vector2( 222.512, 380.079 )
+contact_monitor = true
+
+[node name="Proton5" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 3 )]
+position = Vector2( 174.581, 380.623 )
+contact_monitor = true
+
+[node name="Proton2" parent="StartingNucleusParticles/Atom1Container" instance=ExtResource( 3 )]
+position = Vector2( 192.24, 402.783 )
+contact_monitor = true
+
+[node name="Atom2Container" type="Node2D" parent="StartingNucleusParticles"]
+
+[node name="Proton" parent="StartingNucleusParticles/Atom2Container" instance=ExtResource( 3 )]
+position = Vector2( 806.971, 329.4 )
+
+[node name="Proton2" parent="StartingNucleusParticles/Atom2Container" instance=ExtResource( 3 )]
+position = Vector2( 806.971, 329.4 )
+
+[node name="Proton3" parent="StartingNucleusParticles/Atom2Container" instance=ExtResource( 3 )]
+position = Vector2( 806.971, 329.4 )
+
+[node name="Neutron" parent="StartingNucleusParticles/Atom2Container" instance=ExtResource( 4 )]
+position = Vector2( 765.394, 315.54 )
+
+[node name="ElectronContainer" type="Node2D" parent="."]
+
+[node name="Atom2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 776.551, 323.978 )
+
+[node name="CollisionShape2D" parent="Atom2/AtomArea" index="0"]
+shape = SubResource( 4 )
+
+[node name="Shell" parent="Atom2/Shells" index="0" instance=ExtResource( 7 )]
+scale = Vector2( 0.125, 0.125 )
+
+[node name="Shell2" parent="Atom2/Shells" index="1" instance=ExtResource( 7 )]
+scale = Vector2( 0.16, 0.16 )
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 6 )]
+
+[connection signal="body_entered" from="NearScreenArea" to="NearScreenArea" method="_on_ScreenBoundary2_body_entered"]
+
+[editable path="Atom"]
+[editable path="Atom2"]

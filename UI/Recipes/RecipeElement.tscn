@@ -1,0 +1,249 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://UI/Recipes/Recipe.gd" type="Script" id=1]
+[ext_resource path="res://UI/Recipes/Sprites/Neutron.png" type="Texture" id=2]
+[ext_resource path="res://UI/Recipes/Sprites/Proton.png" type="Texture" id=3]
+[ext_resource path="res://UI/Recipes/ElementBackground.png" type="Texture" id=4]
+[ext_resource path="res://UI/Fonts/DynamicFontData_PHITRADESIGN.tres" type="DynamicFontData" id=5]
+[ext_resource path="res://UI/Recipes/RecipeLabel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Particles/Sprites/Electron_dark.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=9]
+size = 450
+outline_size = 6
+outline_color = Color( 0.458824, 0.458824, 0.458824, 1 )
+extra_spacing_top = -50
+extra_spacing_bottom = -50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 300
+outline_size = 6
+outline_color = Color( 0.886275, 0.815686, 0.160784, 1 )
+extra_spacing_top = -50
+extra_spacing_bottom = -50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 300
+outline_size = 6
+outline_color = Color( 0.454902, 0.756863, 0.756863, 1 )
+extra_spacing_top = -50
+extra_spacing_bottom = -50
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "SpawnIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorBackground:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("HBoxContainer4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="Recipe" type="TextureRect" groups=[
+"Recipes",
+]]
+margin_left = -1.542
+margin_right = 988.458
+margin_bottom = 1277.0
+rect_scale = Vector2( 0.1, 0.1 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 4 )
+stretch_mode = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorBackground" type="TextureRect" parent="."]
+margin_right = 990.0
+margin_bottom = 1277.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ElementLabel" parent="MarginContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_top = 340.0
+margin_right = 990.0
+margin_bottom = 937.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.458824, 0.458824, 0.458824, 1 )
+text = ""
+align = 1
+valign = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -279.397
+margin_top = 16.467
+margin_right = 282.603
+margin_bottom = 381.467
+rect_pivot_offset = Vector2( 762.724, 301.171 )
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProtonLabel" parent="HBoxContainer4" instance=ExtResource( 6 )]
+margin_left = 29.0
+margin_right = 199.0
+margin_bottom = 365.0
+text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer4"]
+margin_left = 249.0
+margin_right = 532.0
+margin_bottom = 365.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer4/MarginContainer"]
+margin_right = 283.0
+margin_bottom = 365.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -468.742
+margin_top = -342.702
+margin_right = 632.258
+margin_bottom = 22.2979
+rect_scale = Vector2( 0.85, 0.85 )
+custom_constants/separation = 42
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 37.0
+margin_right = 540.0
+margin_bottom = 365.0
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NeutronLabel" parent="HBoxContainer/HBoxContainer5" instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_right = 170.0
+margin_bottom = 365.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.886275, 0.815686, 0.160784, 1 )
+text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer5"]
+margin_left = 220.0
+margin_right = 503.0
+margin_bottom = 365.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer5/MarginContainer"]
+margin_right = 283.0
+margin_bottom = 365.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 582.0
+margin_right = 1072.0
+margin_bottom = 365.0
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ElectronLabel" parent="HBoxContainer/HBoxContainer6" instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_right = 170.0
+margin_bottom = 365.0
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.454902, 0.756863, 0.756863, 1 )
+text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer6"]
+margin_left = 220.0
+margin_right = 490.0
+margin_bottom = 365.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HBoxContainer6/MarginContainer"]
+margin_right = 270.0
+margin_bottom = 365.0
+texture = ExtResource( 7 )
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SpawnIn = SubResource( 4 )

@@ -1,0 +1,194 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://Environment/Background1.png" type="Texture" id=2]
+[ext_resource path="res://UI/Recipes/RecipeElement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Buttons/SceneButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/BoundaryArea.gd" type="Script" id=5]
+[ext_resource path="res://UI/SceneTransitionRect.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Fonts/DynamicFontData_PHITRADESIGN.tres" type="DynamicFontData" id=7]
+[ext_resource path="res://Levels/SucceesLabel.gd" type="Script" id=8]
+[ext_resource path="res://UI/Images/Button_fill.png" type="Texture" id=9]
+[ext_resource path="res://UI/ResetButton.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 615.283, 12.418 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 308.215, 12.418 )
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.59
+
+[sub_resource type="DynamicFont" id=12]
+size = 100
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 799, 219 )
+modulate_color = Color( 0.886275, 0.815686, 0.160784, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 799, 219 )
+modulate_color = Color( 0.494118, 0.768627, 0.505882, 1 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 799, 219 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 150
+outline_color = Color( 0.494118, 0.768627, 0.505882, 1 )
+font_data = ExtResource( 7 )
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Atoms" type="Node2D" parent="."]
+
+[node name="FreeStartingParticles" type="Node2D" parent="."]
+
+[node name="StartingNucleusParticles" type="Node2D" parent="."]
+
+[node name="Environment" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="Environment"]
+modulate = Color( 0.502411, 0.600947, 0.789063, 1 )
+position = Vector2( 514.046, 302 )
+scale = Vector2( 3.435, 4.055 )
+z_index = -100
+texture = ExtResource( 2 )
+
+[node name="NearScreenArea" type="Area2D" parent="Environment"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/NearScreenArea"]
+position = Vector2( 482.203, 15.0348 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Environment/NearScreenArea"]
+position = Vector2( 493.516, 593.399 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Environment/NearScreenArea"]
+position = Vector2( 132.227, 294.435 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Environment/NearScreenArea"]
+position = Vector2( 1011.83, 302.227 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="ScreenBoundary" type="StaticBody2D" parent="Environment"]
+collision_layer = 2
+collision_mask = 5
+physics_material_override = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/ScreenBoundary"]
+position = Vector2( 477.96, -10.4882 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment/ScreenBoundary"]
+position = Vector2( 493.96, 616 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Environment/ScreenBoundary"]
+position = Vector2( 106.771, 307.163 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Wall4" type="CollisionShape2D" parent="Environment/ScreenBoundary"]
+position = Vector2( 1038.7, 302.227 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelUI" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/LevelUI"]
+modulate = Color( 0.956863, 0.584314, 0.584314, 1 )
+anchor_bottom = 1.0
+margin_right = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecipeContainer" type="VBoxContainer" parent="CanvasLayer/LevelUI"]
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 30.0
+rect_scale = Vector2( 0.11, 0.11 )
+custom_constants/separation = 420
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Recipe" parent="CanvasLayer/LevelUI/RecipeContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_right = 990.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="SceneTransitionRect" parent="CanvasLayer/LevelUI" instance=ExtResource( 6 )]
+visible = false
+
+[node name="SuccessContainer" type="Control" parent="CanvasLayer/LevelUI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SuccessLabel" type="Label" parent="CanvasLayer/LevelUI/SuccessContainer"]
+margin_top = 199.0
+margin_right = 1024.0
+margin_bottom = 355.0
+custom_fonts/font = SubResource( 12 )
+text = "Great job!"
+align = 1
+script = ExtResource( 8 )
+
+[node name="SceneButton" parent="CanvasLayer/LevelUI/SuccessContainer" instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -161.184
+margin_top = 62.7081
+margin_right = 632.816
+margin_bottom = 275.708
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+
+[node name="Label" parent="CanvasLayer/LevelUI/SuccessContainer/SceneButton" index="3"]
+custom_fonts/font = SubResource( 8 )
+text = "Next"
+
+[node name="ResetButton" parent="CanvasLayer/LevelUI" instance=ExtResource( 10 )]
+
+[connection signal="body_entered" from="Environment/NearScreenArea" to="Environment/NearScreenArea" method="_on_ScreenBoundary2_body_entered"]
+
+[editable path="CanvasLayer/LevelUI/SuccessContainer/SceneButton"]

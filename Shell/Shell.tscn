@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Shell/Shell.gd" type="Script" id=1]
+[ext_resource path="res://Shell/Sprites/ElectronShell_2.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 2.31455, -6.62406, -2.31455, 6.62406, -25.536, -12.9823, -13.7407, -13.5398, 13.7407, 13.5398, -20.2379, 22.1958, -7.35478, 6.50227, 7.35478, -6.50227, 18.9428, 22.6453, 13.8941, 14.7055, -13.8941, -14.7055, 21.2652, -18.1087, 2.58234, -2.01414, -2.58234, 2.01414, -14.3945, -24.2517, 0, 0, 0, 0, -25.236, -13.4823, 0, 0, 0, 0, -25.536, -12.9823 )
+}
+
+[node name="Shell" type="Node2D"]
+z_index = -1
+script = ExtResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 7.861, -28.317 )
+scale = Vector2( 20, 20 )
+curve = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
